@@ -1,0 +1,17 @@
+runtime: java11
+env: standard
+service: default
+entrypoint: java -jar build/libs/app.jar
+
+env_variables:
+  spring_datasource_url: 'jdbc:postgresql://<private-ip>:5432/moviedb'
+  spring_datasource_username: <user>
+  spring_datasource_password: <password>
+
+vpc_access_connector:
+  name: 'projects/<project>/locations/<region>/connectors/<connector-name>'
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always

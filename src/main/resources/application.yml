@@ -1,0 +1,12 @@
+server:
+  port: '${PORT:8080}'
+spring:
+  application:
+    name: spring-app-sample
+management:
+  endpoint:
+    health:
+      show-details: always
+  health:
+    diskspace:
+      enabled: false
