@@ -23,7 +23,7 @@ services:
     volumes:
       - './:/bzt-configs'
   postgres:
-    image: 'postgres:12'
+    image: 'postgres:11'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgresql

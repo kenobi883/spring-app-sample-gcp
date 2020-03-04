@@ -1,0 +1,18 @@
+runtime: java11
+env: standard
+service: default
+entrypoint: java -jar build/libs/app.jar
+instance_class: F4
+
+env_variables:
+  spring_datasource_url: 'jdbc:postgresql://10.2.32.3:5432/moviedb'
+  spring_datasource_username: postgres
+  spring_datasource_password: postgresql
+
+vpc_access_connector:
+  name: 'projects/train-udemy/locations/us-central1/connectors/vpcconmovie'
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always

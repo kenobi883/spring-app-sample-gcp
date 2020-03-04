@@ -16,7 +16,9 @@ The JAR is automatically output at `build/libs/app.jar`.
 
 ## Google Cloud Platform
 
-See the [`app.yml`](/app.yml) file for configuration of deploying the Spring Boot application to App Engine standard Java 11 runtime.
+### App Engine Standard
+
+See the [`app-standard.yml`](/app-standard.yml) file for configuration of deploying the Spring Boot application to App Engine standard Java 11 runtime.
 
 Some considerations for running in App Engine Standard:
 
@@ -30,6 +32,19 @@ Some considerations for running in App Engine Standard:
   Do not provision a public IP.
   Serverless VPC access must be enabled for the VPC and a connector created for App Engine.
   This connector must be specified in `app.yml`.
+  After this, the private IP may be used to connect to the database and keep network traffic off the public internet.
+
+### App Engine Flexible
+
+See the [`app-flexible.yml`](/app-flexible.yml) file for configuration of deploying the Spring Boot application to App Engine flexible custom Docker runtime.
+
+See the [`Dockerfile`](/Dockerfile) for details about the container image.
+
+Some considerations for running in App Engine Flexible:
+
+* When working with Cloud SQL, a private connection to the database can be used.
+  The private IP _must_ be set up when the SQL instance is created.
+  Do not provision a public IP.
   After this, the private IP may be used to connect to the database and keep network traffic off the public internet.
 
 ## Simulate Application Load
